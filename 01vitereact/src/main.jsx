@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 
@@ -10,22 +10,32 @@ function MyApp(){
   )
 }
 
-const ReactElement = {
-  type: 'a',
-  props: {
-      href: 'https://www.google.com',
-      target: '_blank',
-      rel: 'noopener noreferrer'
+// const ReactElement = {
+//   type: 'a',
+//   props: {
+//       href: 'https://www.google.com',
+//       target: '_blank',
+//       rel: 'noopener noreferrer'
+//   },
+//   children: 'Click Me To Visit Google!'
+// }
+
+const anotherElement = (
+  <a href="https://www.google.com" target='_blank'>Visit Google</a>
+);
+
+const anotherusername = "Bhanu";
+
+const ReactElement = React.createElement(
+  'a',
+  {
+    href: "https://www.google.com/",
+    target: "_blank",
   },
-  children: 'Click Me To Visit Google!'
-}
+  'Click Me To Visit Google! ',
+  anotherusername
+)
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
-  //   <App />
-  // </StrictMode>,
-    // MyApp()
-
-    ReactElement
-
+  ReactElement
 )
